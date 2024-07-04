@@ -8,12 +8,26 @@ namespace Latih7_WinFormControlGrid
         public Form1()
         {
             InitializeComponent();
+            
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGray;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var data = GenerateData();
             dataGridView1.DataSource = data;
+            
+            dataGridView1.Columns["Warna"].DefaultCellStyle.BackColor = Color.LightBlue;
+            dataGridView1.Columns["VolumeMesin"].DefaultCellStyle.BackColor = Color.LightGreen;
+
+            dataGridView1.Columns["VolumeMesin"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns["MaxKecepatan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns["VolumeMesin"].DefaultCellStyle.Format = "N0";
+
+            dataGridView1.Columns["TipeMobil"].DefaultCellStyle.Font = new Font(dataGridView1.Font, FontStyle.Italic);
         }
         private IEnumerable<Mobil> GenerateData()
         {
